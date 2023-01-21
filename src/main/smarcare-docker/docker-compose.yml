@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  smarcare:
+    build:
+      context: ./smarcare-app
+      dockerfile: Dockerfile
+    container_name: smarcare
+    image: smarcare:0.0.7
+
+  orion:
+    image: fiware/orion
+    ports:
+      - "1026:1026"
+    depends_on:
+      - mongo
+    command: -dbhost mongo
+
+  mongo:
+    image: mongo:4.4
+    command: --nojournal
