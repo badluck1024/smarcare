@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: smarcare
-    image: smarcare:0.0.23
+    image: smarcare:0.0.24
     depends_on:
       - orion
     environment:

@@ -3,10 +3,7 @@ package it.unile.smarcare;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.okhttp.*;
-import it.unile.smarcare.model.OrionAttributeBloodPressure;
-import it.unile.smarcare.model.OrionAttributeTemperature;
-import it.unile.smarcare.model.SensorData;
-import it.unile.smarcare.model.SensorDataOrion;
+import it.unile.smarcare.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
