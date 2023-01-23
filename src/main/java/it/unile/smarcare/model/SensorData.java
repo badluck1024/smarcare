@@ -42,6 +42,13 @@ public class SensorData {
         this.minBloodPressure = minBloodPressure;
     }
 
+    public int getMaxBloodPressure() {
+        return maxBloodPressure;
+    }
+
+    public void setMaxBloodPressure(int maxBloodPressure) {
+        this.maxBloodPressure = maxBloodPressure;
+    }
     @Override
     public String toString() {
         return "SensorData{" +

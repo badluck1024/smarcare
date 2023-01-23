@@ -19,7 +19,7 @@ public class SmarcareApplication {
     }
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(SmarcareApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(SmarcareApplication.class, args); //avvia app
         context.registerShutdownHook();
     }
 
@@ -32,6 +32,6 @@ public class SmarcareApplication {
     private void startSmartEdgeDevice() {
         String orionURL = environment.getProperty("orion.server-url");
         SmartEdgeDevice smartEdgeDevice = new SmartEdgeDevice(orionURL);
-        smartEdgeDevice.start();
+        smartEdgeDevice.start(); //avvia device
     }
 }

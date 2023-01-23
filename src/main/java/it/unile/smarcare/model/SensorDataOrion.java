@@ -5,13 +5,17 @@ public class SensorDataOrion {
     private String id;
     private String type;
     private OrionAttributeTemperature temperature;
-    private OrionAttributeBloodPressure pressure;
+    private OrionAttributeMaxBloodPressure maxPressure;
+    private OrionAttributeMinBloodPressure minPressure;
+    private OrionAttributePulseRate pulseRate;
 
-    public SensorDataOrion(String id, String type, OrionAttributeTemperature temperature, OrionAttributeBloodPressure pressure) {
+    public SensorDataOrion(String id, String type, OrionAttributeTemperature temperature, OrionAttributeMaxBloodPressure maxPressure, OrionAttributeMinBloodPressure minPressure, OrionAttributePulseRate pulseRate) {
         this.id = id;
         this.type = type;
         this.temperature = temperature;
-        this.pressure = pressure;
+        this.maxPressure = maxPressure;
+        this.minPressure = minPressure;
+        this.pulseRate = pulseRate;
     }
 
     public String getId() {
@@ -38,11 +42,25 @@ public class SensorDataOrion {
         this.temperature = temperature;
     }
 
-    public OrionAttributeBloodPressure getPressure() {
-        return pressure;
+    public OrionAttributeMaxBloodPressure getMaxPressure() {
+        return maxPressure;
     }
 
-    public void setPressure(OrionAttributeBloodPressure pressure) {
-        this.pressure = pressure;
+    public void setMaxPressure(OrionAttributeMaxBloodPressure maxPressure) {
+        this.maxPressure = maxPressure;
     }
+
+    public OrionAttributeMinBloodPressure getMinPressure() {
+        return minPressure;
+    }
+
+    public void setMinPressure(OrionAttributeMinBloodPressure minPressure) {
+        this.minPressure = minPressure;
+    }
+
+    public OrionAttributePulseRate getPulseRate() {
+        return pulseRate;
+    }
+
+    public void setPulseRate(OrionAttributePulseRate pulseRate) { this.pulseRate = pulseRate; }
 }

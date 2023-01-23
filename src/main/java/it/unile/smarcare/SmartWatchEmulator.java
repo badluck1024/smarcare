@@ -6,13 +6,13 @@ public class SmartWatchEmulator {
 
     private int mesurementInterval = 500;
 
-    private int MIN_BLOOD_PRESSURE_MIN_VALUE = 90;
+    private int MIN_BLOOD_PRESSURE_MIN_VALUE = 50;
 
-    private int MIN_BLOOD_PRESSURE_MAX_VALUE = 200;
+    private int MIN_BLOOD_PRESSURE_MAX_VALUE = 150;
 
-    private int MAX_BLOOD_PRESSURE_MIN_VALUE = 50;
+    private int MAX_BLOOD_PRESSURE_MIN_VALUE = 90;
 
-    private int MAX_BLOOD_PRESSURE_MAX_VALUE = 150;
+    private int MAX_BLOOD_PRESSURE_MAX_VALUE = 200;
 
     private int PULSE_RATE_MIN_VALUE = 50;
 

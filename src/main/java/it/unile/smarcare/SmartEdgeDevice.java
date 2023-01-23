@@ -9,7 +9,6 @@ import it.unile.smarcare.model.SensorData;
 import it.unile.smarcare.model.SensorDataOrion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class SmartEdgeDevice {
 
     private static final Logger log = LoggerFactory.getLogger(SmartEdgeDevice.class);
 
-    private static final int ORION_SEND_INTERVAL = 5000;
+    private static final int ORION_SEND_INTERVAL = 5000; //mando ad orion ogni 5s
     private String orionServerUrl;
     private List<SensorData> sensorDataList = new ArrayList<>();
 
@@ -70,7 +69,10 @@ public class SmartEdgeDevice {
                 "sensor-" + sensorDataCounter++,
                 "SmartWatch",
                 new OrionAttributeTemperature(sensorData.getTemperature()),
-                new OrionAttributeBloodPressure(sensorData.getMinBloodPressure())
+                new OrionAttributeMaxBloodPressure(sensorData.getMaxBloodPressure()),
+                new OrionAttributeMinBloodPressure(sensorData.getMinBloodPressure()),
+                new OrionAttributePulseRate(sensorData.getPulseRate())
+
         );
 
         // Generate an http client
@@ -91,7 +93,7 @@ public class SmartEdgeDevice {
             throw new RuntimeException(e);
         }
 
-        // Make a call to the orion server to delete all the entities
+
 
     }
 }
