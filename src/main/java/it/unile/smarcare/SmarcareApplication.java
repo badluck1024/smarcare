@@ -7,12 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SmarcareApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SmarcareApplication.class, args);
+        SpringApplication.run(SmarcareApplication.class, args); //avvia app
         startSmartEdgeDevice();
     }
 
     private static void startSmartEdgeDevice() {
-        SmartEdgeDevice smartEdgeDevice = new SmartEdgeDevice();
+        SmartEdgeDevice smartEdgeDevice = new SmartEdgeDevice(); //avvia device
         smartEdgeDevice.start();
     }
 }

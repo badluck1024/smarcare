@@ -1,15 +1,15 @@
 package it.unile.smarcare.model;
 
-public class OrionAttributePulseRate extends OrionAttribute {
+public class OrionAttributeMaxBloodPressure extends OrionAttribute {
 
     private Integer value;
 
-    public OrionAttributePulseRate() {
-        super("Float");
+    public OrionAttributeMaxBloodPressure() {
+        super("Integer");
     }
 
-    public OrionAttributePulseRate(int value) {
-        super("Float");
+    public OrionAttributeMaxBloodPressure(Integer value) {
+        super("Integer");
         this.value = value;
     }
 

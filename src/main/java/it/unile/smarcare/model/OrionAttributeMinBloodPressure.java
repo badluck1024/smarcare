@@ -1,14 +1,14 @@
 package it.unile.smarcare.model;
 
-public class OrionAttributeBloodPressure extends OrionAttribute {
+public class OrionAttributeMinBloodPressure extends OrionAttribute {
 
     private Integer value;
 
-    public OrionAttributeBloodPressure() {
+    public OrionAttributeMinBloodPressure() {
         super("Integer");
     }
 
-    public OrionAttributeBloodPressure(Integer value) {
+    public OrionAttributeMinBloodPressure(Integer value) {
         super("Integer");
         this.value = value;
     }

@@ -3,10 +3,7 @@ package it.unile.smarcare;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.okhttp.*;
-import it.unile.smarcare.model.OrionAttributeBloodPressure;
-import it.unile.smarcare.model.OrionAttributeTemperature;
-import it.unile.smarcare.model.SensorData;
-import it.unile.smarcare.model.SensorDataOrion;
+import it.unile.smarcare.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +15,7 @@ public class SmartEdgeDevice {
 
     private static final Logger log = LoggerFactory.getLogger(SmartEdgeDevice.class);
 
-    private static final int ORION_SEND_INTERVAL = 5000;
+    private static final int ORION_SEND_INTERVAL = 5000; //mando ad orion ogni 5s
 
     private List<SensorData> sensorDataList = new ArrayList<>();
 
@@ -54,10 +51,6 @@ public class SmartEdgeDevice {
         SensorData sensorData = sensorDataList.get(sensorDataList.size() - 1);
         log.info("  ----> Sending sensor data to ORION: {}", sensorData);
 
-        // Send sensor data compliant with the orion server NGSIv2 standard
-
-
-
 
         ObjectMapper objectMapper = new ObjectMapper();
         // Send the sensor data to fiware/orion
@@ -65,7 +58,10 @@ public class SmartEdgeDevice {
                 "sensor-" + sensorDataCounter++,
                 "SmartWatch",
                 new OrionAttributeTemperature(sensorData.getTemperature()),
-                new OrionAttributeBloodPressure(sensorData.getMinBloodPressure())
+                new OrionAttributeMaxBloodPressure(sensorData.getMaxBloodPressure()),
+                new OrionAttributeMinBloodPressure(sensorData.getMinBloodPressure()),
+                new OrionAttributePulseRate(sensorData.getPulseRate())
+
         );
 
         // Generate an http client
@@ -86,7 +82,7 @@ public class SmartEdgeDevice {
             throw new RuntimeException(e);
         }
 
-        // Make a call to the orion server to delete all the entities
+
 
     }
 }
