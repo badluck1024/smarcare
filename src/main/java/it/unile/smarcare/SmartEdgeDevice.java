@@ -9,6 +9,7 @@ import it.unile.smarcare.model.SensorData;
 import it.unile.smarcare.model.SensorDataOrion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,10 +20,14 @@ public class SmartEdgeDevice {
     private static final Logger log = LoggerFactory.getLogger(SmartEdgeDevice.class);
 
     private static final int ORION_SEND_INTERVAL = 5000;
-
+    private String orionServerUrl;
     private List<SensorData> sensorDataList = new ArrayList<>();
 
     private int sensorDataCounter = 0;
+
+    public SmartEdgeDevice(String orionServerUrl) {
+        this.orionServerUrl = orionServerUrl;
+    }
 
     public void start() {
         SmartWatchEmulator smartWatchEmulator = new SmartWatchEmulator(this);
@@ -70,7 +75,7 @@ public class SmartEdgeDevice {
 
         // Generate an http client
         OkHttpClient client = new OkHttpClient();
-        String orionURL = "http://localhost:1026/v2/entities";
+        String orionURL = orionServerUrl + "/v2/entities";
 
         try {
             RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), objectMapper.writeValueAsString(sensorDataOrion));

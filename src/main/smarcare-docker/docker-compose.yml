@@ -2,10 +2,14 @@ version: '3.8'
 services:
   smarcare:
     build:
-      context: ./smarcare-app
+      context: .
       dockerfile: Dockerfile
     container_name: smarcare
-    image: smarcare:0.0.7
+    image: smarcare:0.0.23
+    depends_on:
+      - orion
+    environment:
+      - ORION_SERVER_URL=http://orion:1026
 
   orion:
     image: fiware/orion

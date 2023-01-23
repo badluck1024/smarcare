@@ -1,3 +1,6 @@
 logging:
   level:
     ROOT: INFO
+
+orion:
+  server-url: http://localhost:1026

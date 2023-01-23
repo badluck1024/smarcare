@@ -22,7 +22,7 @@ public class SmartWatchEmulator {
 
     private double TEMPERATURE_MAX_VALUE = 42.0;
 
-    private SmartEdgeDevice smartEdgeDevice = new SmartEdgeDevice();
+    private SmartEdgeDevice smartEdgeDevice;
 
     public SmartWatchEmulator(SmartEdgeDevice smartEdgeDevice) {
         this.smartEdgeDevice = smartEdgeDevice;
